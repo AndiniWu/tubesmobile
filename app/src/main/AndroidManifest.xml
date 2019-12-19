@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".FormProperty"></activity>
-=======
         <activity android:name=".Login"></activity>
->>>>>>> bb465f225421f12e800001e75a73334d5a5f8ea6
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
