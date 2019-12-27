@@ -2,4 +2,12 @@
     <string name="app_name">MyProperty</string>
     <string name="fullname">Fullname</string>
     <string name="signup">New user? Sign Up</string>
+    <string name="id_alamat">Alamat</string>
+    <string name="id_tipeproperti">Tipe \nProperti</string>
+    <string name="id_harga">Harga</string>
+    <string name="id_luasbangunan">Luas \nBangunan</string>
+    <string name="id_luastanah">Luas Tanah</string>
+    <string name="id_jlhkamarmandi">Jlh Kamar \nMandi</string>
+    <string name="id_jlhkamartidur">Jlh Kamar \nTidur</string>
+    <string name="id_fasilitasyangada">Fasilitas \nyang ada</string>
 </resources>
