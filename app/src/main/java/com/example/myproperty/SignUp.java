@@ -47,17 +47,17 @@ public class SignUp extends AppCompatActivity {
         String email, password, fullname, username;
         email = emailTV.getText().toString();
         password = passwordTV.getText().toString();
-        fullname = fullnameTV.getText().toString();
-        username = usernameTV.getText().toString();
+//        fullname = fullnameTV.getText().toString();
+//        username = usernameTV.getText().toString();
 
-        if (TextUtils.isEmpty(fullname)) {
-            Toast.makeText(getApplicationContext(), "Please enter fullname!", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if (TextUtils.isEmpty(username)) {
-            Toast.makeText(getApplicationContext(), "Please enter username!", Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(fullname)) {
+//            Toast.makeText(getApplicationContext(), "Please enter fullname!", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if (TextUtils.isEmpty(username)) {
+//            Toast.makeText(getApplicationContext(), "Please enter username!", Toast.LENGTH_LONG).show();
+//            return;
+//        }
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;
@@ -88,8 +88,8 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void initializeUI() {
-        fullnameTV = findViewById(R.id.fullname);
-        usernameTV = findViewById(R.id.username);
+//        fullnameTV = findViewById(R.id.fullname);
+//        usernameTV = findViewById(R.id.username);
         emailTV = findViewById(R.id.email);
         passwordTV = findViewById(R.id.password);
         signup_button = findViewById(R.id.signup_button);
