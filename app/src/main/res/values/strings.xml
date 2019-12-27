@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyProperty</string>
+    <string name="fullname">Fullname</string>
+    <string name="signup">New user? Sign Up</string>
 </resources>
