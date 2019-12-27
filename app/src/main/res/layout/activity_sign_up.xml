@@ -4,33 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
-
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/progressBarStyle"
-        android:id="@+id/progressBarLogin"/>
+    tools:context=".SignUp">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="149dp">
-
+        android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/fullname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="Fullname"/>
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
         android:layout_below="@+id/til1">
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til2">
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        android:layout_below="@+id/til3">
         <EditText
             android:id="@+id/password"
             android:layout_width="fill_parent"
@@ -38,35 +52,23 @@
             android:hint="Password"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
-
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til3"
+        android:id="@+id/til5"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til2"
-        android:layout_alignParentBottom="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="signup"
-            android:text="@string/signup"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/til4"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/til3"
+        android:layout_below="@+id/til4"
         android:layout_alignParentBottom="true">
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/signup_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login" />
+            android:text="SIGN UP" />
     </android.support.design.widget.TextInputLayout>
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </RelativeLayout>

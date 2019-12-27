@@ -1,4 +1,4 @@
-# tubesmobile
+# MyProperty
 Tugas Kuliah Pemrograman Mobile Kom A
 
 - Andini Pratiwi (161402088)

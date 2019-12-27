@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "92223717318",
+    "firebase_url": "https://tubesmobile-adb9c.firebaseio.com",
+    "project_id": "tubesmobile-adb9c",
+    "storage_bucket": "tubesmobile-adb9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92223717318:android:63b87003a3055596de3cc7",
+        "android_client_info": {
+          "package_name": "com.example.myproperty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92223717318-kn0m525hoa9nogpmk3v8ucnnft36s2if.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myproperty",
+            "certificate_hash": "66b733e976bdbc325d76448504d6cdcd35c87174"
+          }
+        },
+        {
+          "client_id": "92223717318-h9gjqiicpgoc0gdbasecqgpsdsrnvo24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxEVPxDM5lKKQQMdERsoivaWdDe3aTMu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92223717318-h9gjqiicpgoc0gdbasecqgpsdsrnvo24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

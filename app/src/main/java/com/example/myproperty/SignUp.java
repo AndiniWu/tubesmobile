@@ -16,38 +16,48 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+public class SignUp extends AppCompatActivity {
+    private EditText fullnameTV, usernameTV, emailTV, passwordTV;
+    private Button signup_button;
+    private ProgressBar progressBar;
 
-public class Login extends AppCompatActivity {
-    private EditText emailTV, passwordTV;
-    private Button login;
-    private ProgressBar progressBarLogin;
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
 
-        login.setOnClickListener(new View.OnClickListener() {
+        signup_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUserAccount();
+                registerNewUser();
             }
         });
 
     }
 
-    private void loginUserAccount() {
-        progressBarLogin.setVisibility(View.VISIBLE);
+    private void registerNewUser() {
+        progressBar.setVisibility(View.VISIBLE);
 
-        String email, password;
+        String email, password, fullname, username;
         email = emailTV.getText().toString();
         password = passwordTV.getText().toString();
+//        fullname = fullnameTV.getText().toString();
+//        username = usernameTV.getText().toString();
 
+//        if (TextUtils.isEmpty(fullname)) {
+//            Toast.makeText(getApplicationContext(), "Please enter fullname!", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if (TextUtils.isEmpty(username)) {
+//            Toast.makeText(getApplicationContext(), "Please enter username!", Toast.LENGTH_LONG).show();
+//            return;
+//        }
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;
@@ -57,36 +67,32 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
+
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                            progressBarLogin.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
 
-                            Intent intent = new Intent(Login.this, Home.class);
+                            Intent intent = new Intent(SignUp.this, Login.class);
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
-                            progressBarLogin.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
     }
 
-    public void signup(View view){
-        Intent intent = new Intent(Login.this, SignUp.class);
-        startActivity(intent);
-    }
-
     private void initializeUI() {
+//        fullnameTV = findViewById(R.id.fullname);
+//        usernameTV = findViewById(R.id.username);
         emailTV = findViewById(R.id.email);
         passwordTV = findViewById(R.id.password);
-        login = findViewById(R.id.login_button);
-        progressBarLogin = findViewById(R.id.progressBarLogin);
+        signup_button = findViewById(R.id.signup_button);
+        progressBar = findViewById(R.id.progressBar);
     }
-
-
 }
