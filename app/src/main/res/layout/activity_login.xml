@@ -6,11 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/progressBarStyle"
-        android:id="@+id/progressBarLogin"/>
+
+
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til1"
@@ -39,34 +36,41 @@
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+
+    <TextView
         android:id="@+id/til3"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/til2"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:onClick="signup"
+        android:text="@string/signup"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="signup"
-            android:text="@string/signup"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/til4"
-        android:layout_width="fill_parent"
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="158dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/til3"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="122dp"
+        android:text="@string/login" />
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login" />
-    </android.support.design.widget.TextInputLayout>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyle"
+        android:id="@+id/progressBarLogin"/>
 
 </RelativeLayout>
