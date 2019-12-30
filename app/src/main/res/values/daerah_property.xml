@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="daerah_properti">
+        <item>Padang Bulan</item>
+        <item>Katamso</item>
+        <item>Sutomo</item>
+        <item>Malaka</item>
+        <item>Cemara Asri</item>
+    </string-array>
+</resources>

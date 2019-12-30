@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="harga_properti">
+        <item>1.65 miliar</item>
+        <item>2.6 miliar</item>
+        <item>350 juta</item>
+        <item>850 juta</item>
+        <item>7 miliar</item>
+    </string-array>
+</resources>
