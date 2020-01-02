@@ -4,73 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Login">
-
-
 
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="149dp">
+        android:layout_marginTop="149dp"
+        app:passwordToggleTint="#00FFFFFF">
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
+
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
-        android:layout_below="@+id/til1">
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"/>
-    </android.support.design.widget.TextInputLayout>
+        android:layout_marginTop="-103dp"
+        app:passwordToggleEnabled="true">
 
+    </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:id="@+id/til3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til2"
+        android:layout_above="@+id/login_button"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="31dp"
         android:clickable="true"
         android:onClick="signup"
         android:text="@string/signup"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textStyle="bold" />
-
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="158dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="122dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="150dp"
         android:text="@string/login" />
-
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="?android:attr/progressBarStyle"
         android:id="@+id/progressBarLogin"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="213dp"
+        android:layout_height="222dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="-103dp"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_above="@+id/til3"
+        android:layout_marginBottom="55dp"
+        android:hint="Password"
+        android:drawableRight="@drawable/ic_remove_red_eye_black_24dp"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#9AFFFFFF" />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/password"
+        android:layout_below="@+id/imageView4"
+        android:layout_marginTop="108dp"
+        android:layout_marginBottom="13dp"
+        android:drawableRight="@drawable/ic_people_outline_black_24dp"
+        android:hint="Email"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#97FFFFFF" />
 
 </RelativeLayout>
