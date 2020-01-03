@@ -19,6 +19,19 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/jenisProperti"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#4CAF50"
+                android:text="Jual"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hargaProperti" />
+
+            <TextView
                 android:id="@+id/hargaProperti"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

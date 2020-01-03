@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="jenis_properti">
+        <item>Jual</item>
+        <item>Jual</item>
+        <item>Sewa</item>
+        <item>Jual</item>
+        <item>Sewa</item>
+    </string-array>
+</resources>
