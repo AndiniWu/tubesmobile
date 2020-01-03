@@ -41,6 +41,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="0dp"
+        app:passwordToggleContentDescription="description"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/colorAccent">
         <EditText
