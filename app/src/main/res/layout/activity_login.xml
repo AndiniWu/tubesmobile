@@ -4,36 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Login">
-
-
 
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til1"
-        android:layout_width="fill_parent"
+        android:layout_width="367dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="149dp">
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="21dp">
 
         <EditText
             android:id="@+id/email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:layout_alignStart="@+id/til1"
+            android:layout_alignBottom="@+id/til1"
+            android:hint="Email"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"/>
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/til1"
+        android:layout_alignStart="@+id/til1"
+        android:layout_alignEnd="@+id/til1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="0dp"
         app:passwordToggleEnabled="true"
-        android:layout_below="@+id/til1">
+        app:passwordToggleTint="@color/colorAccent">
         <EditText
+            android:inputType="textPassword"
             android:id="@+id/password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="367dp"
+            android:layout_height="45dp"
             android:hint="Password"
-            android:inputType="textPassword"/>
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -44,26 +61,28 @@
         android:layout_below="@+id/til2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
         android:onClick="signup"
         android:text="@string/signup"
         android:textAlignment="center"
+        android:textColor="@android:color/white"
         android:textStyle="bold" />
 
 
     <Button
         android:id="@+id/login_button"
+        style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
         android:layout_width="158dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/til3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="122dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="123dp"
         android:text="@string/login" />
 
 
@@ -72,5 +91,17 @@
         android:layout_height="wrap_content"
         style="?android:attr/progressBarStyle"
         android:id="@+id/progressBarLogin"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="229dp"
+        android:layout_height="113dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="91dp"
+        app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>
