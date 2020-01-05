@@ -78,7 +78,7 @@ public class Login extends AppCompatActivity {
 
     public void signup(View view){
         Intent intent = new Intent(Login.this, SignUp.class);
-        
+        startActivity(intent);
     }
 
     private void initializeUI() {
