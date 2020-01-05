@@ -1,6 +1,7 @@
 package com.example.myproperty;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,7 +35,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String daerah = sDaerah[i];
         String harga = sHarga[i];
         String jenis = sJenis[i];
-
         viewHolder.daerahProperti.setText(daerah);
         viewHolder.hargaProperti.setText(harga);
         viewHolder.jenisProperti.setText(jenis);
@@ -51,6 +51,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(v.getContext(),DetailProperty.class);
+                    i.putExtra("namaDaerah",sDaerah[getAdapterPosition()]);
+                    i.putExtra("namaHarga",sHarga[getAdapterPosition()]);
+                    v.getContext().startActivity(i);
+                }
+            });
             daerahProperti = itemView.findViewById(R.id.daerahProperti);
             hargaProperti = itemView.findViewById(R.id.hargaProperti);
             jenisProperti = itemView.findViewById(R.id.jenisProperti);

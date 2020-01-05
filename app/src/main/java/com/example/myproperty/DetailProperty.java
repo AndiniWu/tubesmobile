@@ -1,34 +1,27 @@
 package com.example.myproperty;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.widget.TextView;
 
 public class DetailProperty extends AppCompatActivity {
+
+    TextView daerah_Properti;
+    TextView harga_Properti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_property);
-        String[] daerah_ = getResources().getStringArray(R.array.daerah_properti);
-        String[] harga_ = getResources().getStringArray(R.array.harga_properti);
-        String[] jenis_ = getResources().getStringArray(R.array.jenis_properti);
 
-        recyclerView = findViewById(R.id.homeListView);
+        daerah_Properti = findViewById(R.id.daerahProperti);
+        harga_Properti = findViewById(R.id.hargaProperti);
+        Intent i = getIntent();
+        String daerah = i.getStringExtra("namaDaerah");
+        String harga = i.getStringExtra("namaHarga");
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this, daerah_, harga_, jenis_); // our adapter takes two string array
-        recyclerView.setAdapter(adapter);
-        /**
-         * Inisialisasi dan mengambil Firebase Database Reference
-         */
-        database = FirebaseDatabase.getInstance().getReference();
-
-        /**
-         * Mengambil data barang dari Firebase Realtime DB
-         */
-    }
-    public static Intent getActIntent(Activity activity){
-        return new Intent(activity, FirebaseDBReadActivity.class);
+        daerah_Properti.setText(daerah);
+        harga_Properti.setText(harga);
     }
 }
