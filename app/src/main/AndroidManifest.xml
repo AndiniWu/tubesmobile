@@ -15,7 +15,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".DetailProperty"></activity>
+        <activity
+            android:name=".activity_menuburger"
+            android:label="@string/title_activity_menuburger"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DetailProperty" />
         <activity android:name=".Home" />
         <activity android:name=".SignUp" />
         <activity android:name=".FormProperty" />
