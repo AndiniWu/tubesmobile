@@ -17,11 +17,12 @@ public class Home extends AppCompatActivity {
 
         String[] daerah_ = getResources().getStringArray(R.array.daerah_properti);
         String[] harga_ = getResources().getStringArray(R.array.harga_properti);
+        String[] jenis_ = getResources().getStringArray(R.array.jenis_properti);
 
         recyclerView = findViewById(R.id.homeListView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,daerah_,harga_); // our adapter takes two string array
+        adapter = new Adapter(this,daerah_,harga_,jenis_); // our adapter takes two string array
         recyclerView.setAdapter(adapter);
 
     }

@@ -13,11 +13,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private LayoutInflater inflater;
     private String[] sDaerah;
     private String[] sHarga;
+    private String[] sJenis;
 
-    Adapter(Context context, String[] daerah_, String[] harga_){
+    Adapter(Context context, String[] daerah_, String[] harga_, String[] jenis_){
         this.inflater = LayoutInflater.from(context);
         this.sDaerah = daerah_;
         this.sHarga = harga_;
+        this.sJenis = jenis_;
     }
 
     @NonNull
@@ -31,8 +33,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String daerah = sDaerah[i];
         String harga = sHarga[i];
+        String jenis = sJenis[i];
+
         viewHolder.daerahProperti.setText(daerah);
         viewHolder.hargaProperti.setText(harga);
+        viewHolder.jenisProperti.setText(jenis);
     }
 
     @Override
@@ -42,12 +47,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView daerahProperti, hargaProperti;
+        TextView daerahProperti, hargaProperti, jenisProperti;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             daerahProperti = itemView.findViewById(R.id.daerahProperti);
             hargaProperti = itemView.findViewById(R.id.hargaProperti);
+            jenisProperti = itemView.findViewById(R.id.jenisProperti);
         }
     }
 }
