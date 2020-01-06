@@ -35,6 +35,10 @@ public class FormProperty extends AppCompatActivity {
     private EditText alamatET;
     private EditText tipePropET;
     private EditText hargaET;
+        NumberFormat formatter = new DecimalFormat("#,###");
+        double myNumber = 1000000;
+        String formattedNumber = formatter.format(myNumber);
+        //formattedNumber is equal to 1,000,000
     private EditText luasBangunET;
     private EditText luasTanahET;
     private EditText kamarMandiET;
