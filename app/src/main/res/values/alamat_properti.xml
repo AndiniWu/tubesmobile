@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="alamat_properti">
+        <item>Jl. Abdul Hakim No.1, Padang Bulan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20222</item>
+        <item>Jl. Abdul Hakim No.2, Padang Bulan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20222</item>
+        <item>Jl. Abdul Hakim No.3, Padang Bulan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20222</item>
+        <item>Jl. Abdul Hakim No.4, Padang Bulan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20222</item>
+        <item>Jl. Abdul Hakim No.5, Padang Bulan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20222</item>
+    </string-array>
+</resources>

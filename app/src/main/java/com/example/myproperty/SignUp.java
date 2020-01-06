@@ -76,7 +76,7 @@ public class SignUp extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
 
-                            Intent intent = new Intent(SignUp.this, Login.class);
+                            Intent intent = new Intent(SignUp.this, CreateProfile.class);
                             startActivity(intent);
                         }
                         else {

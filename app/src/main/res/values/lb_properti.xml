@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lb_properti">
+        <item>9 x 11</item>
+        <item>10 x 7</item>
+        <item>8 x 8</item>
+        <item>7 x 9</item>
+        <item>9 x 8</item>
+    </string-array>
+</resources>

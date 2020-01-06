@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fasilitas_properti">
+        <item>3 tingkat, SHGB, siap huni, PAM, PLN 900 W, AC 3 unit, water heater, full furnished, garasi, full keramik</item>
+        <item>2 tingkat, SHGB, siap huni, PAM, PLN 900 W, AC 3 unit, water heater, full furnished, garasi, full keramik</item>
+        <item>3 tingkat, SHGB, siap huni, PAM, PLN 900 W, AC 3 unit, water heater, full furnished, garasi, full keramik</item>
+        <item>2 tingkat, SHGB, siap huni, PAM, PLN 900 W, AC 3 unit, water heater, full furnished, garasi, full keramik</item>
+        <item>3 tingkat, SHGB, siap huni, PAM, PLN 900 W, AC 3 unit, water heater, full furnished, garasi, full keramik</item>
+    </string-array>
+</resources>
