@@ -14,12 +14,8 @@ public class ModelUser {
     public ModelUser(int position){
         this.position = position;
     }
-    public ModelUser(String fullnameET, String imageURL, String usernameET, String nohpET){
-        if(fullnameET.trim().equals("")){
-            fullnameET = "No Name";
-        }
+    public ModelUser(String fullnameET, String usernameET, String nohpET){
         this.fullnameET = fullnameET;
-        this.imageURL = imageURL;
         this.usernameET = usernameET;
         this.nohpET = nohpET;
     }

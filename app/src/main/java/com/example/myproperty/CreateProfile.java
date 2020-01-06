@@ -1,169 +1,177 @@
 package com.example.myproperty;
 
-import android.content.ContentResolver;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
-public class CreateProfile extends AppCompatActivity {
-    private static final int PICK_IMAGE_REQUEST = 1;
-    private Button chooseImageBtn;
-    private Button uploadBtn;
-    private EditText fullnameET;
-    private EditText usernameET;
-    private EditText nohpET;
-    private ProgressBar uploadProgressBar;
-    private ImageView chosenImageView;
-    private Uri mImageUri;
-    private StorageReference mStorageRef;
-    private DatabaseReference mDatabaseRef;
-    private StorageTask mUploadTask;
+import java.io.IOException;
 
-    @Override
+public class CreateProfile extends AppCompatActivity implements View.OnClickListener{
+    private static final String TAG = CreateProfile.class.getSimpleName();
+    Button btnsave;
+    private FirebaseAuth firebaseAuth;
+    private TextView textViewemailname;
+    private DatabaseReference databaseReference;
+    private EditText editTextName;
+    private EditText editTextUsername;
+    private EditText editTextPhoneNo;
+    private ImageView profileImageView;
+    private FirebaseStorage firebaseStorage;
+    private static int PICK_IMAGE = 123;
+    Uri imagePath;
+    private StorageReference storageReference;
+
+    public CreateProfile() {
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data.getData() != null) {
+            imagePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imagePath);
+                profileImageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
+        firebaseAuth=FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),SignUp.class));
+        }
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        editTextName = (EditText)findViewById(R.id.EditTextName);
+        editTextUsername = (EditText)findViewById(R.id.EditTextSurname);
+        editTextPhoneNo = (EditText)findViewById(R.id.EditTextPhoneNo);
+        btnsave=(Button)findViewById(R.id.btnSaveButton);
+        FirebaseUser user=firebaseAuth.getCurrentUser();
+        btnsave.setOnClickListener(this);
+        textViewemailname=(TextView)findViewById(R.id.textViewEmailAdress);
+        textViewemailname.setText(user.getEmail());
+        profileImageView = findViewById(R.id.update_imageView);
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
 
-        chooseImageBtn = findViewById(R.id.upload_image);
-        uploadBtn = findViewById(R.id.uploadBtn);
-        fullnameET = findViewById(R.id.fullname);
-        usernameET = findViewById(R.id.username);
-        nohpET = findViewById(R.id.nohp);
-        chosenImageView = findViewById(R.id.chosenImageView);
-        uploadProgressBar = findViewById(R.id.progress_bar);
-
-        mStorageRef = FirebaseStorage.getInstance().getReference("profile");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("profile");
-
-        chooseImageBtn.setOnClickListener(new View.OnClickListener() {
+        profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFileChooser();
-            }
-        });
-
-
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mUploadTask != null && mUploadTask.isInProgress()){
-                    Toast.makeText(CreateProfile.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
-                }else{
-                    uploadFile();
-                }
+                Intent profileIntent = new Intent();
+                profileIntent.setType("image/*");
+                profileIntent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(profileIntent, "Select Image."), PICK_IMAGE);
             }
         });
     }
-
-    private void openFileChooser(){
-        Intent intent= new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    private void userInformation(){
+        String name = editTextName.getText().toString().trim();
+        String surname = editTextUsername.getText().toString().trim();
+        String phoneno = editTextPhoneNo.getText().toString().trim();
+        ModelUser userinformation = new ModelUser(name,surname,phoneno);
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).setValue(userinformation);
+        Toast.makeText(getApplicationContext(),"User information updated",Toast.LENGTH_LONG).show();
     }
-
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onClick(View view) {
+        if (view==btnsave){
+            if (imagePath == null) {
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            mImageUri = data.getData();
-
-            Picasso.get().load(mImageUri).into(chosenImageView);
+                Drawable drawable = this.getResources().getDrawable(R.drawable.defavatar);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.defavatar);
+                // openSelectProfilePictureDialog();
+                userInformation();
+                // sendUserData();
+                finish();
+                startActivity(new Intent(CreateProfile.this, Home.class));
+            }
+            else {
+                userInformation();
+                sendUserData();
+                finish();
+                startActivity(new Intent(CreateProfile.this, Home.class));
+            }
         }
     }
 
-    private String getFileExtension(Uri uri) {
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
+    private void sendUserData() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        // Get "User UID" from Firebase > Authentification > Users.
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic"); //User id/Images/Profile Pic.jpg
+        UploadTask uploadTask = imageReference.putFile(imagePath);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(CreateProfile.this, "Error: Uploading profile picture", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(CreateProfile.this, "Profile picture uploaded", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    private void uploadFile() {
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + getFileExtension(mImageUri));
-
-            uploadProgressBar.setVisibility(View.VISIBLE);
-            uploadProgressBar.setIndeterminate(true);
-
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    uploadProgressBar.setVisibility(View.VISIBLE);
-                                    uploadProgressBar.setIndeterminate(false);
-                                    uploadProgressBar.setProgress(0);
-                                }
-                            }, 500);
-
-                            Toast.makeText(CreateProfile.this, "Profile Upload successful", Toast.LENGTH_LONG).show();
-                            ModelUser upload = new ModelUser(fullnameET.getText().toString().trim(),
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(),
-                                    usernameET.getText().toString(),
-                                    nohpET.getText().toString()
-
-                            );
-
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(upload);
-
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            openImagesActivity ();
-
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(CreateProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            uploadProgressBar.setProgress((int) progress);
-                        }
-                    });
-            uploadProgressBar.setVisibility(View.GONE);
-
-            Intent intent = new Intent(CreateProfile.this, Login.class);
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void openImagesActivity(){
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
+    public void openSelectProfilePictureDialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        TextView title = new TextView(this);
+        title.setText("Profile Picture");
+        title.setPadding(10, 10, 10, 10);   // Set Position
+        title.setGravity(Gravity.CENTER);
+        title.setTextColor(Color.BLACK);
+        title.setTextSize(20);
+        alertDialog.setCustomTitle(title);
+        TextView msg = new TextView(this);
+        msg.setText("Please select a profile picture \n Tap the sample avatar logo");
+        msg.setGravity(Gravity.CENTER_HORIZONTAL);
+        msg.setTextColor(Color.BLACK);
+        alertDialog.setView(msg);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Perform Action on Button
+            }
+        });
+        new Dialog(getApplicationContext());
+        alertDialog.show();
+        final Button okBT = alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL);
+        LinearLayout.LayoutParams neutralBtnLP = (LinearLayout.LayoutParams) okBT.getLayoutParams();
+        neutralBtnLP.gravity = Gravity.FILL_HORIZONTAL;
+        okBT.setPadding(50, 10, 10, 10);   // Set Position
+        okBT.setTextColor(Color.BLUE);
+        okBT.setLayoutParams(neutralBtnLP);
     }
 }
