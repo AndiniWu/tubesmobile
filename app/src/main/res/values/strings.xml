@@ -2,6 +2,7 @@
     <string name="app_name">MyProperty</string>
     <string name="fullname">Fullname</string>
     <string name="signup">New user? Sign Up</string>
+    <string name="id_image">Upload Image</string>
     <string name="id_alamat">Alamat</string>
     <string name="id_tipeproperti">Tipe \nProperti</string>
     <string name="id_harga">Harga</string>
@@ -12,4 +13,15 @@
     <string name="id_fasilitasyangada">Fasilitas \nyang ada</string>
     <string name="login"> LOGIN </string>
     <string name="api_key">changeme</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="jumlah_kamar_tidur">Jumlah Kamar Tidur</string>
+    <string name="fasilitas_yang_ada">Fasilitas yang ada</string>
+    <string name="id_submit">Submit</string>
+    <string name="jumlah_kamar_mandi">Jumlah Kamar Mandi</string>
+    <string name="luas_tanah">Luas Tanah</string>
+    <string name="alamat">Alamat</string>
+    <string name="todo">TODO</string>
+    <string name="tipe_properti">Tipe Properti</string>
+    <string name="harga">Harga</string>
+    <string name="luas_bangunan">Luas Bangunan</string>
 </resources>

@@ -58,9 +58,10 @@
             android:id="@+id/tipe_properti"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Tipe Properti"
+            android:hint="@string/tipe_properti"
             android:inputType="text"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:autofillHints="" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -74,9 +75,10 @@
             android:id="@+id/harga"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Harga"
+            android:hint="@string/harga"
             android:inputType="number"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:autofillHints="" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -90,9 +92,10 @@
             android:id="@+id/luas_bangunan"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Luas Bangunan"
+            android:hint="@string/luas_bangunan"
             android:inputType="text"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:autofillHints="" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -108,7 +111,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/luas_tanah"
             android:inputType="text"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:autofillHints="" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -124,7 +128,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/jumlah_kamar_mandi"
             android:inputType="number"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:autofillHints="" />
 
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
