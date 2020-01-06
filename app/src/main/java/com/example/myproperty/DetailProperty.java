@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +11,6 @@ import android.widget.TextView;
 
 public class DetailProperty extends AppCompatActivity {
 
-    Button editBtn;
     TextView daerah_Properti;
     TextView harga_Properti;
     TextView jenis_Properti;
@@ -96,21 +93,13 @@ public class DetailProperty extends AppCompatActivity {
     public void bukaSurel(View view) {
         String mail = surel_Properti.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {mail});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{mail});
         intent.setType("message/rfc822");
 
-        if (intent.resolveActivity(getPackageManager()) != null){
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
             Log.d("ImplicitIntents", "Can't handle this intent!");
         }
     }
-
-    public void createStart(View view){
-        Intent intent = new Intent(DetailProperty.this, EditDetailProperty.class);
-        startActivity(intent);
-        finish();
-    }
-
-
 }

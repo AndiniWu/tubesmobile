@@ -9,7 +9,7 @@ public class ModelProperty {
     private String alamatET;
     private String tipePropET;
     private String hargaET;
-    private String luasBangunET;
+    private String luasBangunanET;
     private String luasTanahET;
     private String kamarMandiET;
     private String kamarTidurET;
@@ -28,7 +28,7 @@ public class ModelProperty {
         this.imageURL = imageURL;
         this.tipePropET = tipePropET;
         this.hargaET = hargaET;
-        this.luasBangunET = luasBangunET;
+        this.luasBangunanET = luasBangunanET;
         this.luasTanahET = luasTanahET;
         this.kamarMandiET = kamarMandiET;
         this.kamarTidurET = kamarTidurET;
@@ -61,11 +61,11 @@ public class ModelProperty {
     }
 
     public String getLuasBangunET() {
-        return luasBangunET;
+        return luasBangunanET;
     }
 
     public void setLuasBangunET(String luasBangunET) {
-        this.luasBangunET = luasBangunET;
+        this.luasBangunanET = luasBangunanET;
     }
 
     public String getLuasTanahET() {

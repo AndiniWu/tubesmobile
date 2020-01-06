@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
+        <activity android:name=".DetailsProperty"></activity>
         <activity android:name=".EditDetailProperty" />
         <activity android:name=".CreateProfile" />
         <activity android:name=".EditProfile" />
