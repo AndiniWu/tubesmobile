@@ -1,9 +1,14 @@
 package com.example.myproperty;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
@@ -33,6 +38,30 @@ public class Home extends AppCompatActivity {
         adapter = new Adapter(this,daerah_,harga_,jenis_,kt_,km_,lt_,lb_,fasilitas_,alamat_,
                 telepon_,surel_);
         recyclerView.setAdapter(adapter);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_favorites:
+                                Toast.makeText(getApplicationContext(), "EditProfileProperty.java", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_home:
+                                Intent inentProfile = new Intent(Home.this, FormProperty.class);
+                                startActivity(inentProfile);
+                                break;
+                            case R.id.action_profile:
+                                Intent inent2Profile = new Intent(Home.this, EditProfile.class);
+                                startActivity(inent2Profile);
+                                break;
+                        }
+                        return true;
+                    }
+                });
 
     }
 }

@@ -24,4 +24,10 @@
     <string name="tipe_properti">Tipe Properti</string>
     <string name="harga">Harga</string>
     <string name="luas_bangunan">Luas Bangunan</string>
+    <string name="profile">Profile</string>
+    <string name="username">Username</string>
+    <string name="nohp">No.Hp</string>
+    <string name="email">Email</string>
+    <string name="log_out">Log out</string>
+    <string name="create_profile">Create Profile</string>
 </resources>
