@@ -47,11 +47,8 @@
 
 package com.example.myproperty;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-
-import com.google.firebase.auth.FirebaseAuth;
+import android.support.v7.app.AppCompatActivity;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -60,7 +57,7 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile2);
 
-        mAuth = FirebaseAuth.getInstance();
+
     }
 }
 
