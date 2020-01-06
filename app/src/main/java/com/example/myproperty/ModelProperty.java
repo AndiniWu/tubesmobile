@@ -35,6 +35,7 @@ public class ModelProperty {
         this.fasilitasET = fasilitasET;
     }
 
+
     public String getAlamatET() {
         return alamatET;
     }

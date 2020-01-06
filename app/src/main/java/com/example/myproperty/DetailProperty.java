@@ -3,10 +3,13 @@ package com.example.myproperty;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DetailProperty extends AppCompatActivity {
 
+    Button editBtn;
     TextView daerah_Properti;
     TextView harga_Properti;
 
@@ -24,4 +27,12 @@ public class DetailProperty extends AppCompatActivity {
         daerah_Properti.setText(daerah);
         harga_Properti.setText(harga);
     }
+
+    public void createStart(View view){
+        Intent intent = new Intent(DetailProperty.this, EditDetailProperty.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
