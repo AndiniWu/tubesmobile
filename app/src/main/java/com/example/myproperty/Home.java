@@ -13,7 +13,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         String[] daerah_ = getResources().getStringArray(R.array.daerah_properti);
         String[] harga_ = getResources().getStringArray(R.array.harga_properti);
