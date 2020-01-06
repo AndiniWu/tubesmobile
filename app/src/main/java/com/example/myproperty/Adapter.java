@@ -21,9 +21,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private String[] sLb;
     private String[] sFasilitas;
     private String[] sAlamat;
+    private String[] sTelepon;
+    private String[] sSurel;
 
     Adapter(Context context, String[] daerah_, String[] harga_, String[] jenis_, String[] kt_,
-            String[] km_, String[] lt_, String[] lb_, String[] fasilitas_, String[] alamat_){
+            String[] km_, String[] lt_, String[] lb_, String[] fasilitas_, String[] alamat_,
+            String[] telepon_, String[] surel_){
         this.inflater = LayoutInflater.from(context);
         this.sDaerah = daerah_;
         this.sHarga = harga_;
@@ -34,6 +37,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.sLb = lb_;
         this.sFasilitas = fasilitas_;
         this.sAlamat = alamat_;
+        this.sTelepon = telepon_;
+        this.sSurel = surel_;
     }
 
     @NonNull
@@ -54,6 +59,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String lb = sLb[i];
         String fasilitas = sFasilitas[i];
         String alamat = sAlamat[i];
+        String telepon = sTelepon[i];
+        String surel = sSurel[i];
         viewHolder.daerahProperti.setText(daerah);
         viewHolder.hargaProperti.setText(harga);
         viewHolder.jenisProperti.setText(jenis);
@@ -63,6 +70,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         viewHolder.lbProperti.setText(lb);
         viewHolder.fasilitasProperti.setText(fasilitas);
         viewHolder.alamatProperti.setText(alamat);
+        viewHolder.teleponProperti.setText(telepon);
+        viewHolder.surelProperti.setText(surel);
     }
 
     @Override
@@ -73,7 +82,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView daerahProperti, hargaProperti, jenisProperti, ktProperti, kmProperti,
-                ltProperti, lbProperti, fasilitasProperti, alamatProperti;
+                ltProperti, lbProperti, fasilitasProperti, alamatProperti, teleponProperti, surelProperti;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,6 +99,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     i.putExtra("namaLb",sLb[getAdapterPosition()]);
                     i.putExtra("namaFasilitas",sFasilitas[getAdapterPosition()]);
                     i.putExtra("namaAlamat",sAlamat[getAdapterPosition()]);
+                    i.putExtra("namaTelepon",sTelepon[getAdapterPosition()]);
+                    i.putExtra("namaSurel",sSurel[getAdapterPosition()]);
                     v.getContext().startActivity(i);
                 }
             });
@@ -102,6 +113,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             lbProperti = itemView.findViewById(R.id.lbProperti);
             fasilitasProperti = itemView.findViewById(R.id.fasilitasProperti);
             alamatProperti = itemView.findViewById(R.id.alamatProperti);
+            teleponProperti = itemView.findViewById(R.id.teleponProperti);
+            surelProperti = itemView.findViewById(R.id.surelProperti);
         }
     }
 }

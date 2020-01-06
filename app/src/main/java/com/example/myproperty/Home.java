@@ -29,12 +29,14 @@ public class Home extends AppCompatActivity {
         String[] lb_ = getResources().getStringArray(R.array.lb_properti);
         String[] fasilitas_ = getResources().getStringArray(R.array.fasilitas_properti);
         String[] alamat_ = getResources().getStringArray(R.array.alamat_properti);
-
+        String[] telepon_ = getResources().getStringArray(R.array.telepon_properti);
+        String[] surel_ = getResources().getStringArray(R.array.surel_properti);
 
         recyclerView = findViewById(R.id.homeListView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,daerah_,harga_,jenis_,kt_,km_,lt_,lb_,fasilitas_,alamat_);
+        adapter = new Adapter(this,daerah_,harga_,jenis_,kt_,km_,lt_,lb_,fasilitas_,alamat_,
+                telepon_,surel_);
         recyclerView.setAdapter(adapter);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
