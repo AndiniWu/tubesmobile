@@ -16,6 +16,7 @@ public class activity_details_properties extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_properties);
         setContentView(R.layout.activity_detail_property);
+
         String[] daerah_ = getResources().getStringArray(R.array.daerah_properti);
         String[] harga_ = getResources().getStringArray(R.array.harga_properti);
         String[] jenis_ = getResources().getStringArray(R.array.jenis_properti);
