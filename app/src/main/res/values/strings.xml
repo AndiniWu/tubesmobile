@@ -11,4 +11,5 @@
     <string name="id_jlhkamartidur">Jlh Kamar \nTidur</string>
     <string name="id_fasilitasyangada">Fasilitas \nyang ada</string>
     <string name="login"> LOGIN </string>
+    <string name="api_key">changeme</string>
 </resources>
