@@ -30,10 +30,6 @@ import com.squareup.picasso.Picasso;
 public class FormProperty extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
-    public static String currencyFormat(String amount)
-        DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
-        return formatter.format(Double.parseDouble(amount));
-
     private Button chooseImageBtn;
     private Button uploadBtn;
     private EditText alamatET;
