@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,7 +20,7 @@ public class activity_details_properties extends AppCompatActivity {
         String[] harga_ = getResources().getStringArray(R.array.harga_properti);
         String[] jenis_ = getResources().getStringArray(R.array.jenis_properti);
 
-        recyclerView = findViewById(R.id.homeListView);
+        View recyclerView = findViewById(R.id.homeListView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new Adapter(this, daerah_, harga_, jenis_); // our adapter takes two string array
