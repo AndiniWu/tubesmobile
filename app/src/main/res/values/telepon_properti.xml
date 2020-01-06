@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="telepon_properti">
+        <item>111111111</item>
+        <item>222222222</item>
+        <item>333333333</item>
+        <item>444444444</item>
+        <item>555555555</item>
+    </string-array>
+</resources>

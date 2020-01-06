@@ -62,7 +62,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="0dp"
                 android:layout_height="277dp"
-                android:src="@drawable/rumah001"
+                android:src="@drawable/rumah"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -107,6 +107,20 @@
 
             <TextView
                 android:id="@+id/alamatProperti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#00FFFFFF" />
+
+            <TextView
+                android:id="@+id/teleponProperti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#00FFFFFF" />
+
+            <TextView
+                android:id="@+id/surelProperti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"

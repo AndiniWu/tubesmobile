@@ -16,6 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
         <activity android:name=".EditDetailProperty"></activity>
+        <activity android:name=".CreateProfile"></activity>
         <activity android:name=".EditProfile" />
         <activity android:name=".DetailProperty" />
         <activity android:name=".Home" />

@@ -26,53 +26,35 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-
-public class FormProperty extends AppCompatActivity {
-
+public class CreateProfile extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button chooseImageBtn;
     private Button uploadBtn;
-    private EditText alamatET;
-    private EditText tipePropET;
-    private EditText hargaET;{
-        NumberFormat formatter = new DecimalFormat("#,###");
-        double myNumber = 1000000;
-        String formattedNumber = formatter.format(myNumber);}
-        //formattedNumber is equal to 1,000,000
-    private EditText luasBangunET;
-    private EditText luasTanahET;
-    private EditText kamarMandiET;
-    private EditText kamarTidurET;
-    private EditText fasilitasET;
-    private ImageView chosenImageView;
+    private EditText fullnameET;
+    private EditText usernameET;
+    private EditText nohpET;
     private ProgressBar uploadProgressBar;
-
+    private ImageView chosenImageView;
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_property);
+        setContentView(R.layout.activity_create_profile);
 
         chooseImageBtn = findViewById(R.id.upload_image);
         uploadBtn = findViewById(R.id.uploadBtn);
-        alamatET = findViewById(R.id.alamat);
-        tipePropET = findViewById(R.id.tipe_properti);
-        hargaET = findViewById(R.id.harga);
-        luasBangunET = findViewById(R.id.luas_bangunan);
-        luasTanahET = findViewById(R.id.luas_tanah);
-        kamarMandiET = findViewById(R.id.kamar_mandi);
-        kamarTidurET = findViewById(R.id.kamar_tidur);
-        fasilitasET = findViewById(R.id.fasilitas);
+        fullnameET = findViewById(R.id.fullname);
+        usernameET = findViewById(R.id.username);
+        nohpET = findViewById(R.id.nohp);
         chosenImageView = findViewById(R.id.chosenImageView);
         uploadProgressBar = findViewById(R.id.progress_bar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("property_upload");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("property_upload");
+        mStorageRef = FirebaseStorage.getInstance().getReference("profile");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("profile");
 
         chooseImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,11 +63,12 @@ public class FormProperty extends AppCompatActivity {
             }
         });
 
+
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mUploadTask != null && mUploadTask.isInProgress()){
-                    Toast.makeText(FormProperty.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfile.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
                 }else{
                     uploadFile();
                 }
@@ -140,17 +123,13 @@ public class FormProperty extends AppCompatActivity {
                                 }
                             }, 500);
 
-                            Toast.makeText(FormProperty.this, "Property Upload successful", Toast.LENGTH_LONG).show();
-                            ModelProperty upload = new ModelProperty(alamatET.getText().toString().trim(),
+                            Toast.makeText(CreateProfile.this, "Profile Upload successful", Toast.LENGTH_LONG).show();
+                            ModelUser upload = new ModelUser(fullnameET.getText().toString().trim(),
                                     taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(),
-                                    tipePropET.getText().toString(),
-                                    hargaET.getText().toString(),
-                                    luasBangunET.getText().toString(),
-                                    luasTanahET.getText().toString(),
-                                    kamarMandiET.getText().toString(),
-                                    kamarTidurET.getText().toString(),
-                                    fasilitasET.getText().toString()
-                                    );
+                                    usernameET.getText().toString(),
+                                    nohpET.getText().toString()
+
+                            );
 
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
@@ -164,7 +143,7 @@ public class FormProperty extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(FormProperty.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -174,12 +153,17 @@ public class FormProperty extends AppCompatActivity {
                             uploadProgressBar.setProgress((int) progress);
                         }
                     });
+            uploadProgressBar.setVisibility(View.GONE);
+
+            Intent intent = new Intent(CreateProfile.this, Login.class);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void openImagesActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="surel_properti">
+        <item>one@example.com</item>
+        <item>two@example.com</item>
+        <item>three@example.com</item>
+        <item>four@example.com</item>
+        <item>five@example.com</item>
+    </string-array>
+</resources>
