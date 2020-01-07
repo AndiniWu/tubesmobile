@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
@@ -50,6 +49,8 @@ public class Home extends AppCompatActivity {
                             case R.id.action_favorites:
                                 Intent inent1Profile = new Intent(Home.this, DetailProperty.class);
                                 startActivity(inent1Profile);
+                                Intent inent3Profile = new Intent(Home.this, Search.class);
+                                startActivity(inent3Profile);
                                 break;
                             case R.id.action_home:
                                 Intent inentProfile = new Intent(Home.this, FormProperty.class);
