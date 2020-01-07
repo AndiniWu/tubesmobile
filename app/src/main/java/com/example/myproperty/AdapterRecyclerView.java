@@ -63,11 +63,15 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
          * dan juga view nya hanyalah satu TextView
          */
         TextView tvTitle;
+        TextView tvPrice;
+        TextView tvType;
         CardView cvMain;
 
         ViewHolder(View v) {
             super(v);
-            tvTitle = (TextView) v.findViewById(R.id.tv_list_property);
+            tvTitle = (TextView) v.findViewById(R.id.tv_title);
+            tvPrice = (TextView) v.findViewById(R.id.tv_price);
+            tvType = (TextView) v.findViewById(R.id.tv_type);
             cvMain = (CardView) v.findViewById(R.id.cv_main);
         }
     }
@@ -90,6 +94,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
          */
         final String harga = daftarProperty.get(position).getHargaET();
         final String alamat = daftarProperty.get(position).getAlamatET();
+        final String tipe = daftarProperty.get(position).getTipePropET();
 
         System.out.println("Data Property "+position+daftarProperty.size());
         holder.cvMain.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +113,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             }
         });
         holder.tvTitle.setText(alamat);
+        holder.tvPrice.setText(harga);
+        holder.tvType.setText(tipe);
     }
 
     @Override
