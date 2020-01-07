@@ -4,6 +4,8 @@
     package="com.example.myproperty">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".CreateProfile"></activity>
+        <activity android:name=".Search"/>
+        <activity android:name=".CreateProfile" />
         <activity android:name=".EditProfile" />
         <activity android:name=".DetailProperty" />
         <activity android:name=".Home" />
