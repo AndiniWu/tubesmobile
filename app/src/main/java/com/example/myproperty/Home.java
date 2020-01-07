@@ -47,8 +47,6 @@ public class Home extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_favorites:
-                                Intent inent1Profile = new Intent(Home.this, DetailProperty.class);
-                                startActivity(inent1Profile);
                                 Intent inent3Profile = new Intent(Home.this, Search.class);
                                 startActivity(inent3Profile);
                                 break;

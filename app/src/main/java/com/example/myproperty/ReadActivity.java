@@ -1,16 +1,16 @@
 package com.example.myproperty;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle; import android.app.Activity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
+import android.view.MenuItem;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +41,31 @@ public class ReadActivity extends AppCompatActivity {
          * Mengeset layout
          */
         setContentView(R.layout.activity_read);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_favorites:
+                                Intent inent3Profile = new Intent(ReadActivity.this, Search.class);
+                                startActivity(inent3Profile);
+                                break;
+                            case R.id.action_home:
+                                Intent inentProfile = new Intent(ReadActivity.this, FormProperty.class);
+                                startActivity(inentProfile);
+                                break;
+                            case R.id.action_profile:
+                                Intent inent2Profile = new Intent(ReadActivity.this, EditProfile.class);
+                                startActivity(inent2Profile);
+                                break;
+                        }
+                        return true;
+                    }
+                });
 
         /**
          * Inisialisasi RecyclerView & komponennya

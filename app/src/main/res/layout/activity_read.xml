@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeListView"
@@ -19,7 +18,8 @@
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
         android:layout_alignParentBottom = "true"
-        app:itemBackground = "@color/colorPrimary"
+        android:layout_marginBottom="0dp"
+        app:itemBackground = "@android:color/holo_blue_dark"
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         app:menu = "@menu/bottom_navigation"/>
@@ -28,19 +28,10 @@
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:background="@color/colorAccent"
-        android:padding="5dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Daftar Property"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_main"
@@ -48,5 +39,6 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
     </android.support.v7.widget.CardView>
+
 
 </LinearLayout>
