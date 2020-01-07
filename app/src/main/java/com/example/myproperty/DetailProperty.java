@@ -93,10 +93,10 @@ public class DetailProperty extends AppCompatActivity {
     public void bukaSurel(View view) {
         String mail = surel_Properti.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {mail});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{mail});
         intent.setType("message/rfc822");
 
-        if (intent.resolveActivity(getPackageManager()) != null){
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
             Log.d("ImplicitIntents", "Can't handle this intent!");
