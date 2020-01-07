@@ -1,8 +1,12 @@
 package com.example.myproperty;
 
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
-public class ModelProperty {
+import java.io.Serializable;
+
+@IgnoreExtraProperties
+public class ModelProperty implements Serializable {
     private String imageURL;
     private String key;
     private int position;
@@ -15,8 +19,6 @@ public class ModelProperty {
     private String kamarTidurET;
     private String fasilitasET;
 
-    public ModelProperty() {
-    }
     public ModelProperty(int position){
         this.position = position;
     }
