@@ -9,14 +9,18 @@ import java.io.Serializable;
 @IgnoreExtraProperties
 public class ModelEditProp implements Serializable{
 
+    private String etImageURL;
     private String etAlamat;
     private String etFasilitas;
     private String etHarga;
     private String etKamarMandi;
     private String etKamarTidur;
-    private String etLuasBangunan;
+    private String etLuasBangun;
     private String etLuasTanah;
     private String etTipeProperty;
+    private String etDaerah;
+    private String etTelepon;
+    private String etSurel;
     private String key;
 
     public ModelEditProp(){
@@ -29,6 +33,14 @@ public class ModelEditProp implements Serializable{
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getImageURL() {
+        return etImageURL;
+    }
+
+    public void setEtImageURLET(String etImageURL) {
+        this.etImageURL = etImageURL;
     }
 
     public String getAlamatET() {
@@ -71,12 +83,12 @@ public class ModelEditProp implements Serializable{
         this.etKamarTidur = etKamarTidur;
     }
 
-    public String getLuasBangunanET() {
-        return etLuasBangunan;
+    public String getLuasBangunET() {
+        return etLuasBangun;
     }
 
-    public void setLuasBangunanET(String etLuasBangunan) {
-        this.etLuasBangunan = etLuasBangunan;
+    public void setLuasBangunET(String etLuasBangun) {
+        this.etLuasBangun = etLuasBangun;
     }
 
     public String getLuasTanahET() {
@@ -95,6 +107,31 @@ public class ModelEditProp implements Serializable{
         this.etTipeProperty = etTipeProperty;
     }
 
+    public String getDaerahET() {
+        return etDaerah;
+    }
+
+    public void setDaerahET(String etDaerah) {
+        this.etDaerah = etDaerah;
+    }
+
+    public String getTeleponET() {
+        return etTelepon;
+    }
+
+    public void setTeleponET(String etTelepon) {
+        this.etTelepon = etTelepon;
+    }
+
+    public String getSurelET() {
+        return etSurel;
+    }
+
+    public void setSurelET(String etSurel) {
+        this.etSurel = etSurel;
+    }
+
+
     @Override
     public String toString() {
         return " "+etAlamat+"\n" +
@@ -102,20 +139,25 @@ public class ModelEditProp implements Serializable{
                 " "+etHarga +"\n" +
                 " "+etKamarMandi +"\n" +
                 " "+etKamarTidur +"\n" +
-                " "+etLuasBangunan +"\n" +
-                " "+etLuasTanah +"\n" +
-                " "+etTipeProperty ;
+                " "+etLuasBangun +"\n" +
+                " "+etTipeProperty +"\n" +
+                " "+etDaerah +"\n" +
+                " "+etTelepon +"\n" +
+                " "+etSurel;
     }
 
-    public ModelEditProp(String al, String fas, String hrg, String km, String kt, String lb, String lt, String tp){
+    public ModelEditProp(String al, String fas, String hrg, String km, String kt, String lb, String lt, String tp, String dr, String tl, String su){
         etAlamat = al;
         etFasilitas = fas;
         etHarga = hrg;
         etKamarMandi = km;
         etKamarTidur = kt;
-        etLuasBangunan = lb;
+        etLuasBangun = lb;
         etLuasTanah = lt;
         etTipeProperty = tp;
+        etDaerah = dr;
+        etTelepon = tl;
+        etSurel = su;
     }
 }
 

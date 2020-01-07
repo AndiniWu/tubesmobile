@@ -13,16 +13,19 @@ public class ModelProperty implements Serializable {
     private String alamatET;
     private String tipePropET;
     private String hargaET;
-    private String luasBangunanET;
+    private String luasBangunET;
     private String luasTanahET;
     private String kamarMandiET;
     private String kamarTidurET;
     private String fasilitasET;
+    private String daerahET;
+    private String teleponET;
+    private String surelET;
 
     public ModelProperty(int position){
         this.position = position;
     }
-    public ModelProperty(String alamatET, String imageURL, String tipePropET, String hargaET, String luasBangunET, String luasTanahET, String kamarMandiET, String kamarTidurET, String fasilitasET){
+    public ModelProperty(String alamatET, String imageURL, String tipePropET, String hargaET, String luasBangunET, String luasTanahET, String kamarMandiET, String kamarTidurET, String fasilitasET, String daerahET, String teleponET, String surelET){
         if(alamatET.trim().equals("")){
             alamatET = "No Address";
         }
@@ -30,11 +33,14 @@ public class ModelProperty implements Serializable {
         this.imageURL = imageURL;
         this.tipePropET = tipePropET;
         this.hargaET = hargaET;
-        this.luasBangunanET = luasBangunanET;
+        this.luasBangunET = luasBangunET;
         this.luasTanahET = luasTanahET;
         this.kamarMandiET = kamarMandiET;
         this.kamarTidurET = kamarTidurET;
         this.fasilitasET = fasilitasET;
+        this.daerahET = daerahET;
+        this.teleponET = teleponET;
+        this.surelET = surelET;
     }
 
 
@@ -63,11 +69,11 @@ public class ModelProperty implements Serializable {
     }
 
     public String getLuasBangunET() {
-        return luasBangunanET;
+        return luasBangunET;
     }
 
     public void setLuasBangunET(String luasBangunET) {
-        this.luasBangunanET = luasBangunanET;
+        this.luasBangunET = luasBangunET;
     }
 
     public String getLuasTanahET() {
@@ -100,6 +106,30 @@ public class ModelProperty implements Serializable {
 
     public void setFasilitasET(String fasilitasET) {
         this.fasilitasET = fasilitasET;
+    }
+
+    public String getDaerahET() {
+        return daerahET;
+    }
+
+    public void setDaerahET(String daerahET) {
+        this.daerahET = daerahET;
+    }
+
+    public String getTeleponET() {
+        return teleponET;
+    }
+
+    public void setTeleponET(String teleponET) {
+        this.teleponET = teleponET;
+    }
+
+    public String getSurelET() {
+        return surelET;
+    }
+
+    public void setSurelT(String surelET) {
+        this.surelET = surelET;
     }
 
     public String getImageURL() {

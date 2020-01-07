@@ -1,13 +1,16 @@
 package com.example.myproperty;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle; import android.app.Activity;
+import android.os.Bundle;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -16,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import android.app.Activity;
@@ -92,6 +96,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         /**
          *  Menampilkan data pada view
          */
+
         final String harga = daftarProperty.get(position).getHargaET();
         final String alamat = daftarProperty.get(position).getAlamatET();
         final String tipe = daftarProperty.get(position).getTipePropET();

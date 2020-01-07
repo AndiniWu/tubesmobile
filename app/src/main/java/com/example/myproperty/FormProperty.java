@@ -9,10 +9,13 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,7 +30,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 
-public class FormProperty extends AppCompatActivity {
+public class FormProperty extends AppCompatActivity{
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button chooseImageBtn;
@@ -40,6 +43,9 @@ public class FormProperty extends AppCompatActivity {
     private EditText kamarMandiET;
     private EditText kamarTidurET;
     private EditText fasilitasET;
+    private EditText daerahET;
+    private EditText teleponET;
+    private EditText surelET;
     private ImageView chosenImageView;
     private ProgressBar uploadProgressBar;
 
@@ -64,6 +70,9 @@ public class FormProperty extends AppCompatActivity {
         kamarMandiET = findViewById(R.id.kamar_mandi);
         kamarTidurET = findViewById(R.id.kamar_tidur);
         fasilitasET = findViewById(R.id.fasilitas);
+        daerahET = findViewById(R.id.daerah);
+        teleponET = findViewById(R.id.telepon);
+        surelET = findViewById(R.id.surel);
         chosenImageView = findViewById(R.id.chosenImageView);
         uploadProgressBar = findViewById(R.id.progress_bar);
 
@@ -145,8 +154,11 @@ public class FormProperty extends AppCompatActivity {
                                     luasTanahET.getText().toString(),
                                     kamarMandiET.getText().toString(),
                                     kamarTidurET.getText().toString(),
-                                    fasilitasET.getText().toString()
-                                    );
+                                    fasilitasET.getText().toString(),
+                                    daerahET.getText().toString(),
+                                    teleponET.getText().toString(),
+                                    surelET.getText().toString()
+                            );
 
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
