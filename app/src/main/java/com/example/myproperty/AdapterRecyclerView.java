@@ -69,6 +69,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         TextView tvTitle;
         TextView tvPrice;
         TextView tvType;
+        ImageView tvImage;
         CardView cvMain;
 
         ViewHolder(View v) {
@@ -76,6 +77,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             tvPrice = (TextView) v.findViewById(R.id.tv_price);
             tvType = (TextView) v.findViewById(R.id.tv_type);
+            tvImage = (ImageView) v.findViewById(R.id.tv_image);
             cvMain = (CardView) v.findViewById(R.id.cv_main);
         }
     }
@@ -97,9 +99,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
          *  Menampilkan data pada view
          */
 
-        final String harga = daftarProperty.get(position).getHargaET();
-        final String alamat = daftarProperty.get(position).getAlamatET();
-        final String tipe = daftarProperty.get(position).getTipePropET();
+        //final String harga = daftarProperty.get(position).getHargaET();
+        //final String alamat = daftarProperty.get(position).getAlamatET();
+        //inal String tipe = daftarProperty.get(position).getTipePropET();
 
         System.out.println("Data Property "+position+daftarProperty.size());
         holder.cvMain.setOnClickListener(new View.OnClickListener() {
@@ -117,9 +119,13 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
                 return true;
             }
         });
-        holder.tvTitle.setText(alamat);
-        holder.tvPrice.setText(harga);
-        holder.tvType.setText(tipe);
+        //holder.tvTitle.setText(alamat);
+        //holder.tvPrice.setText(harga);
+        //holder.tvType.setText(tipe);
+        holder.tvTitle.setText(daftarProperty.get(position).getDaerahET());
+        holder.tvPrice.setText(daftarProperty.get(position).getHargaET());
+        holder.tvType.setText(daftarProperty.get(position).getTipePropET());
+        Picasso.get().load(daftarProperty.get(position).getImageURL()).into(holder.tvImage);
     }
 
     @Override

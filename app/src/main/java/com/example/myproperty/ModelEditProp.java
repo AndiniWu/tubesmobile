@@ -1,5 +1,6 @@
 package com.example.myproperty;
 
+import android.media.Image;
 import android.widget.EditText;
 
 import com.google.firebase.database.IgnoreExtraProperties;
@@ -26,6 +27,7 @@ public class ModelEditProp implements Serializable{
     public ModelEditProp(){
 
     }
+
 
     public String getKey() {
         return key;
@@ -134,7 +136,8 @@ public class ModelEditProp implements Serializable{
 
     @Override
     public String toString() {
-        return " "+etAlamat+"\n" +
+        return  " "+etImageURL+"\n" +
+                " "+etAlamat+"\n" +
                 " "+etFasilitas +"\n" +
                 " "+etHarga +"\n" +
                 " "+etKamarMandi +"\n" +
@@ -146,7 +149,8 @@ public class ModelEditProp implements Serializable{
                 " "+etSurel;
     }
 
-    public ModelEditProp(String al, String fas, String hrg, String km, String kt, String lb, String lt, String tp, String dr, String tl, String su){
+    public ModelEditProp(String im, String al, String fas, String hrg, String km, String kt, String lb, String lt, String tp, String dr, String tl, String su){
+        etImageURL = im;
         etAlamat = al;
         etFasilitas = fas;
         etHarga = hrg;
