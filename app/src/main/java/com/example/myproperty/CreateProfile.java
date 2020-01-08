@@ -116,13 +116,13 @@ public class CreateProfile extends AppCompatActivity implements View.OnClickList
                 userInformation();
                 // sendUserData();
                 finish();
-                startActivity(new Intent(CreateProfile.this, Home.class));
+                startActivity(new Intent(CreateProfile.this, ReadActivity.class));
             }
             else {
                 userInformation();
                 sendUserData();
                 finish();
-                startActivity(new Intent(CreateProfile.this, Home.class));
+                startActivity(new Intent(CreateProfile.this, ReadActivity.class));
             }
         }
     }
