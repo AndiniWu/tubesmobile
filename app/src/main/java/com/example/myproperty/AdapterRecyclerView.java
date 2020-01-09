@@ -1,47 +1,13 @@
 package com.example.myproperty;
 
-import android.media.Image;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -77,7 +43,6 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             tvPrice = (TextView) v.findViewById(R.id.tv_price);
             tvType = (TextView) v.findViewById(R.id.tv_type);
-            tvImage = (ImageView) v.findViewById(R.id.tv_image);
             cvMain = (CardView) v.findViewById(R.id.cv_main);
         }
     }
@@ -125,7 +90,6 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.tvTitle.setText(daftarProperty.get(position).getDaerahET());
         holder.tvPrice.setText(daftarProperty.get(position).getHargaET());
         holder.tvType.setText(daftarProperty.get(position).getTipePropET());
-        Picasso.get().load(daftarProperty.get(position).getImageURL()).into(holder.tvImage);
     }
 
     @Override
